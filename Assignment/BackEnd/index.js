@@ -7,7 +7,6 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 
 // Routes Load
-const app_router = require("./Routes/app.route");
 const user_router = require("./Routes/user.route");
 const msg_router = require("./Routes/message.route");
 
@@ -19,9 +18,15 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", app_router);
-app.use("/user", user_router);
-app.use("/msg", msg_router);
+// Serve static files from the web app
+app.use(express.static(path.join(__dirname, "public/dist/your-angular-app")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public/dist/your-angular-app/index.html"));
+});
+
+// API routes
+app.use("/api/user", user_router);
+app.use("/api/msg", msg_router);
 
 // Swagger api docs
 const swagger = require("express-joi-swagger-spec");

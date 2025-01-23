@@ -1,0 +1,72 @@
+.loginBody {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  background-image: url("https://the-decoder.com/wp-content/uploads/2023/06/chatbot_illustration-1200x673.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.leftPannel {
+  display: none;
+  background-color: transparent;
+}
+
+.rightPannel {
+  /* background: #77a1d3; 
+  background: -webkit-linear-gradient(
+    to left,
+    #e684ae,
+    #79cbca,
+    #77a1d3
+  ); 
+  background: linear-gradient(
+    to left,
+    #e684ae,
+    #79cbca,
+    #77a1d3
+  );  */
+  background-color: transparent;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+
+.loginForm {
+  width: 80%;
+  height: auto;
+}
+
+@media screen and (min-width: 500px) and (max-width: 999px) {
+  .rightPannel {
+    flex-basis: 75%;
+    flex-grow: 1;
+  }
+
+  .leftPannel {
+    flex-basis: 25%;
+    flex-grow: 1;
+    display: unset;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .rightPannel {
+    flex-basis: 45%;
+  }
+
+  .leftPannel {
+    flex-basis: 55%;
+    display: unset;
+  }
+
+  .loginForm {
+    width: 60%;
+    height: auto;
+  }
+}
